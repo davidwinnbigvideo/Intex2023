@@ -1,0 +1,201 @@
+<!-- 
+    Authors: Aiki Takaku, Mark Barlocker, Spencer Olson, David Winn
+    The editForm page allows the survey to be edited
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Edit Survey</title>
+   <link rel="stylesheet" href="/styles/surveyform.css">
+
+   <script src="/scripts/surveryform.js"></script>
+</head>
+
+<body>
+
+    <form id="surveyForm" action="/editEntry/<%= formEntry[0].entry_id %>/<%=adminId %>" method="POST">
+        <fieldset style="width: 800px;">
+            <h1>Edit Survey</h1>
+            <br>
+            <label style="font-size: 23px;">Fill in Your Information: </label>
+            <br><br><br>
+
+            <label for="Age">1. Age: </label>
+            <input type="number" id="age" name="age" for="Age" value="<%= formEntry[0].age %>" required>
+            <br><br><br>
+
+            <label>2. Gender: </label>
+            <br><br>
+            <input type="radio" id="male" name="gender" for="male" value="Male" <%= formEntry[0].gender == "Male" ? "checked" : "" %> required>
+            <label for="male">Male</label>
+            <br>
+            <input type="radio" id="female" name="gender" for="female" value="Female" <%= formEntry[0].gender == "Female" ? "checked" : "" %> >
+            <label for="female">Female</label>
+            <br>
+            <input type="radio" id="other" name="gender" for="other" value="Other" <%= formEntry[0].gender == "Other" ? "checked" : "" %> >
+            <label for="other">Other</label>
+            <br><br><br>
+
+            <label>3. Relationship Status: </label>
+            <br><br>
+            <input type="radio" id="relationship" name="relationStatus" for="relationship" value="In relationship"  <%= formEntry[0].relationship == "In relationship" ? "checked" : "" %> required>
+            <label for="relationship">In relationship</label>
+            <br>
+            <input type="radio" id="single" name="relationStatus" for="single" value="Single" <%= formEntry[0].relationship == "Single" ? "checked" : "" %>>
+            <label for="single">Single</label>
+            <br>
+            <input type="radio" id="married" name="relationStatus" for="married" value="Married" <%= formEntry[0].relationship == "Married" ? "checked" : "" %>>
+            <label for="married">Married</label>
+            <br>
+            <input type="radio" id="divorced" name="relationStatus" for="divorced" value="Divorced" <%= formEntry[0].relationship == "Divorced" ? "checked" : "" %>>
+            <label for="divorced">Divorced</label>
+            <br><br><br>
+
+            <label>4. Occupation Status: </label>
+            <br><br>
+            <input type="radio" id="universityStud" name="occupation" for="universityStud" value="University Student" <%= formEntry[0].occupation == "University Student" ? "checked" : "" %>>
+            <label for="universityStud">University Student</label>
+            <br>
+            <input type="radio" id="schoolStud" name="occupation" for="schoolStud" value="School Student" <%= formEntry[0].occupation == "School Student" ? "checked" : "" %>>
+            <label for="schoolStud">School Student</label>
+            <br>
+            <input type="radio" id="salariedWorker" name="occupation" for="salariedWorker" value="Salaried Worker" <%= formEntry[0].occupation == "Salaried Worker" ? "checked" : "" %>>
+            <label for="salariedWorker">Salaried Worker</label>
+            <br>
+            <input type="radio" id="retired" name="occupation" for="retired" value="Retired" <%= formEntry[0].occupation == "Retired" ? "checked" : "" %>>
+            <label for="retired">Retired</label>
+            <br>
+            <input type="radio" id="none" name="occupation" for="none" value="N/A" <%= formEntry[0].occupation == "N/A" ? "checked" : "" %>>
+            <label for="none">None</label>
+            <br>
+            <br><br>
+
+            <label>5. What type of organizations are you affiliated with?</label>
+            <br><br>
+            <input type="checkbox" name="organizations" id="university" for="university" value="University" <% if (formEntry.some(entry => entry.org_name === "University")) { %>checked<% } %>><label for="university">University</label><br>
+            <input type="checkbox" name="organizations" id="private" for="private" value="Private" <% if (formEntry.some(entry => entry.org_name === "Private")) { %>checked<% } %>><label for="private">Private</label><br>
+            <input type="checkbox" name="organizations" id="school" for="school" value="School" <% if (formEntry.some(entry => entry.org_name === "School")) { %>checked<% } %>><label for="school">School</label><br>
+            <input type="checkbox" name="organizations" id="company" for="company" value="Company" <% if (formEntry.some(entry => entry.org_name === "Company")) { %>checked<% } %>><label for="company">Company</label><br>
+            <input type="checkbox" name="organizations" id="government" for="government" value="Government" <% if (formEntry.some(entry => entry.org_name === "Government")) { %>checked<% } %>><label for="government">Government</label>
+            <br><br><br>
+
+            <label>6. Do you use social media?</label>
+            <br><br>
+            <input type="radio" id="yes" name="socialMedia" for="yes" value="Yes" <%= formEntry[0].uses_social_media == "Yes" ? "checked" : "" %> required>
+            <label>Yes</label>
+            <br>
+            <input type="radio" id="no" name="socialMedia" for="no" value="No" <%= formEntry[0].uses_social_media == "No" ? "checked" : "" %>>
+            <label>No</label>
+            <br><br><br>
+
+            <label>7. What social media platforms do you commonly use?</label>
+            <br><br>
+            <input type="checkbox" name="platform" id="facebook" for="facebook" value="Facebook" <% if (formEntry.some(entry => entry.platform_name === "Facebook")) { %>checked<% } %>><label for="facebook">Facebook</label><br>
+            <input type="checkbox" name="platform" id="twitter" for="twitter" value="Twitter" <% if (formEntry.some(entry => entry.platform_name === "Twitter")) { %>checked<% } %>><label for="twitter">Twitter</label><br>
+            <input type="checkbox" name="platform" id="instagram" for="instagram" value="Instagram" <% if (formEntry.some(entry => entry.platform_name === "Instagram")) { %>checked<% } %>><label for="instagram">Instagram</label><br>
+            <input type="checkbox" name="platform" id="youtube" for="youtube" value="YouTube" <% if (formEntry.some(entry => entry.platform_name === "Youtube")) { %>checked<% } %>><label for="youtube">YouTube</label><br>
+            <input type="checkbox" name="platform" id="discord" for="discord" value="Discord" <% if (formEntry.some(entry => entry.platform_name === "Discord")) { %>checked<% } %>><label for="discord">Discord</label><br>
+            <input type="checkbox" name="platform" id="reddit" for="reddit" value="Reddit" <% if (formEntry.some(entry => entry.platform_name === "Reddit")) { %>checked<% } %>><label for="raddit">Reddit</label><br>
+            <input type="checkbox" name="platform" id="pinterest" for="pinterest" value="Pinterest" <% if (formEntry.some(entry => entry.platform_name === "Pinterest")) { %>checked<% } %>><label for="pinterest">Pinterest</label><br>
+            <input type="checkbox" name="platform" id="tiktok" for="tiktok" value="TikTok" <% if (formEntry.some(entry => entry.platform_name === "TikTok")) { %>checked<% } %>><label for="tiktok">TikTok</label><br>
+            <input type="checkbox" name="platform" id="snapchat" for="snapchat" value="Snapchat" <% if (formEntry.some(entry => entry.platform_name === "Snapchat")) { %>checked<% } %>><label for="snapchat">Snapchat</label><br>
+            <br><br><br>
+            
+            <label>8. What is the average time you spend on social media every day?</label>
+            <br><br>
+            <select id="spendingTime" style="font-size: 17px;" required>
+                <option value="" disabled selected>-- Select an option --</option>
+                <option value="Less than an hour" <%= formEntry[0].avg_time == "Less than an hour" ? "selected" : ""%>>Less than an hour</option>
+                <option value="Between 1 and 2 hours" <%= formEntry[0].avg_time == "Between 1 and 2 hours" ? "selected" : ""%>>Between 1 and 2 hours</option>
+                <option value="Between 2 and 3 hours" <%= formEntry[0].avg_time == "Between 2 and 3 hours" ? "selected" : ""%>>Between 2 and 3 hours</option>
+                <option value="Between 3 and 4 hours" <%= formEntry[0].avg_time == "Between 3 and 4 hours" ? "selected" : ""%>>Between 3 and 4 hours</option>
+                <option value="Between 4 and 5 hours" <%= formEntry[0].avg_time == "Between 4 and 5 hours" ? "selected" : ""%>>Between 4 and 5 hours</option>
+                <option value="More than 5 hours" <%= formEntry[0].avg_time == "More than 5 hours" ? "selected" : ""%>>More than 5 hours</option>
+            </select>
+            <br><br><br>
+
+            <label>For questions 9-20, rate between 1 and 5. (1 is lowest and 5 is highest)</label>
+            <br><br><br>
+
+            <label>9. How often do you find yourself using social media without a specific purpose?</label>
+            <br><br>
+            <input type="range" id="sizeFor9" min="1" max="5" value="<%= formEntry[0].no_purpose %>" step="1" oninput="sizeForSpecific(this.value)" style="width: 90%;">
+            <label id="specificPurpose" class="sizeNumber"><%= formEntry[0].no_purpose %></label>
+            <br><br><br>
+
+            <label>10. How often do you get distracted by social media when you are busy doing something?</label>
+            <br><br>
+            <input type="range" id="sizeFor10" min="1" max="5" value="<%= formEntry[0].busy_distracted %>" step="1" oninput="sizeForDistracted(this.value)" style="width: 90%;">
+            <label id="distracted" class="sizeNumber"><%= formEntry[0].busy_distracted %></label>
+            <br><br><br>
+
+            <label>11. Do you feel restless if you haven’t used social media in a while?</label>
+            <br><br>
+            <input type="range" id="sizeFor11" min="1" max="5" value="<%= formEntry[0].restless %>" step="1" oninput="sizeForRestless(this.value)" style="width: 90%;">
+            <label id="restless" class="sizeNumber"><%= formEntry[0].restless %></label>
+            <br><br><br>
+
+            <label>12. How easily distracted are you?</label>
+            <br><br>
+            <input type="range" id="sizeFor12" min="1" max="5" value="<%= formEntry[0].easily_distracted %>" step="1" oninput="sizeForEasyDistracted(this.value)" style="width: 90%;">
+            <label id="easyDistracted" class="sizeNumber"><%= formEntry[0].easily_distracted %></label>
+            <br><br><br>
+
+            <label>13. How much are you bothered by worries?</label>
+            <br><br>
+            <input type="range" id="sizeFor13" min="1" max="5" value="<%= formEntry[0].worries %>" step="1" oninput="sizeForBothered(this.value)" style="width: 90%;">
+            <label id="bothered" class="sizeNumber"><%= formEntry[0].worries %></label>
+            <br><br><br>
+
+            <label>14. Do you find it difficult to concentrate on things?</label>
+            <br><br>
+            <input type="range" id="sizeFor14" min="1" max="5" value="<%= formEntry[0].concentration %>" step="1" oninput="sizeForDifficultConcent(this.value)" style="width: 90%;">
+            <label id="difficultConcent" class="sizeNumber"><%= formEntry[0].concentration %></label>
+            <br><br><br>
+
+            <label>15. How often do you compare yourself to other successful people through the use of social media?</label>
+            <br><br>
+            <input type="range" id="sizeFor15" min="1" max="5" value="<%= formEntry[0].compare %>" step="1" oninput="sizeForCompare(this.value)" style="width: 90%;">
+            <label id="compare" class="sizeNumber"><%= formEntry[0].compare %></label>
+            <br><br><br>
+
+            <label>16. Following the previous question, how do you feel about these comparisons, generally speaking?</label>
+            <br><br>
+            <input type="range" id="sizeFor16" min="1" max="5" value="<%= formEntry[0].compare_feelings %>" step="1" oninput="sizeForfeelComperisons(this.value)" style="width: 90%;">
+            <label id="feelComperisons" class="sizeNumber"><%= formEntry[0].compare_feelings %></label>
+            <br><br><br>
+
+            <label>17. How often do you look to seek validation from features of social media?</label>
+            <br><br>
+            <input type="range" id="sizeFor17" min="1" max="5" value="<%= formEntry[0].validation %>" step="1" oninput="sizeForValidation(this.value)" style="width: 90%;">
+            <label id="validation" class="sizeNumber"><%= formEntry[0].validation %></label>
+            <br><br><br>
+
+            <label>18. How often do you feel depressed or down?</label>
+            <br><br>
+            <input type="range" id="sizeFor18" min="1" max="5" value="<%= formEntry[0].depressed %>" step="1" oninput="sizeForDepressed(this.value)" style="width: 90%;">
+            <label id="depressed" class="sizeNumber"><%= formEntry[0].depressed %></label>
+            <br><br><br>
+
+            <label>19. How frequently does your interested in daily activities fluctuate?</label>
+            <br><br>
+            <input type="range" id="sizeFor18" min="1" max="5" value="<%= formEntry[0].motivation %>" step="1" oninput="sizeForDailyActivities(this.value)" style="width: 90%;">
+            <label id="dailyActivities" class="sizeNumber"><%= formEntry[0].motivation %></label>
+            <br><br><br>
+
+            <label>20. How often do you face issues regarding sleep?</label>
+            <br><br>
+            <input type="range" id="sizeFor18" min="1" max="5" value="<%= formEntry[0].sleep %>" step="1" oninput="sizeForSleep(this.value)" style="width: 90%;">
+            <label id="sleep" class="sizeNumber"><%= formEntry[0].sleep %></label>
+            <br><br><br>
+            <button type="submit" style="font-size: 20px;">Submit</button>
+            <a href="/cancel/<%=adminId %>">
+                <button type="button" style="font-size: 20px;">Cancel</button>
+            </a> 
+        </fieldset>
+    </form>
+   
+</body>

@@ -1,0 +1,148 @@
+/* 
+Authors: Spencer, Mark, David, Aiki
+This is the style page for the login page
+ */
+
+@import url("font-awesome.min.css");
+@import url("http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
+
+body {
+    margin: 20;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    background-image: linear-gradient(rgba(23, 50, 91, 0.7), rgba(50, 50, 50, 0.7)), url(../images/wallpaper_web.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+button {
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #2A5AF4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 5%; 
+}
+
+header {
+    line-height: 3.5em;
+    position: absolute;
+    top: 0;
+    width: 100%;    
+}
+
+header h1 {
+    left: 1.25em;
+    margin: 0;
+    position: absolute;
+}
+
+nav {
+    position: absolute;
+    right: 1em;
+}
+
+nav ul {
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFFBF;
+    font-size: 16px;
+}
+
+form {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    margin-top: 20%;
+    margin-bottom: 15%;
+}
+
+fieldset {
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #2A5AF4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="reset"] {
+    background-color: #ccc;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: white;
+    color: #2A5AF4;
+}
+
+.hidden {
+    display: none;
+}
+
+#password {
+    text-align: right;
+    font-size: 14px;
+}
+
+.redtext {
+    color: red;
+    text-align: center;
+}

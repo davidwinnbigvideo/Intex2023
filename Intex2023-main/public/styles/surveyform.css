@@ -1,0 +1,159 @@
+/* 
+Authors: Spencer, Mark, David, Aiki
+This is the styling for the surveyForm
+ */
+
+@import url("font-awesome.min.css");
+@import url("http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
+
+body {
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(rgba(23, 50, 91, 0.7), rgba(50, 50, 50, 0.7)), url(../images/wallpaper_web.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Roboto", Helvetica, sans-serif;
+    background-color: #F5F5F4;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    line-height: 3.5em;
+    position: absolute;
+    top: 0;
+    width: 100%;    
+}
+
+header h1 {
+    left: 1.25em;
+    margin: 0;
+    position: absolute;
+}
+
+nav {
+    margin: 0;
+    display: inline-block;
+    margin-left: 1em;
+    position: absolute;
+    right: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFFBF;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+form {
+    background-color: #F5F5F4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 50%;
+    display: flex;
+    flex-direction: row;
+    text-align: left; 
+    margin: 0 auto;
+    font-size: 22px;
+    margin-top: 5%; 
+}
+
+legend {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="number"] {
+    width: calc(100% - 16px);
+}
+
+input[type="radio"] {
+    vertical-align: middle;
+}
+
+input[type="range"] {
+    width: calc(100% - 16px);
+}
+
+#spendingTime {
+    width: calc(100% - 16px);
+    height: 40px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #2A5AF4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="reset"] {
+    background-color: #ccc;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: white;
+    color: #2A5AF4;
+}
+
+#centerButton {
+    text-align: center;
+}
+
+.redtext {
+    color: red;
+}
+
+.sizeNumber {
+    margin: 25px;
+}
+
+@media screen and (max-width: 520px) {
+    form {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    form {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 922px) {
+    form {
+        max-width: 50%;
+    }
+}

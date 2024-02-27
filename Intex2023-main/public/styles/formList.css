@@ -1,0 +1,185 @@
+/* 
+Authors: Spencer, Mark, David, Aiki
+This is the styling for the formList page
+ */
+
+@import url("font-awesome.min.css");
+@import url("http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
+
+body {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(23, 50, 91, 0.7), rgba(50, 50, 50, 0.7)), url(../images/wallpaper_web.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Roboto", Helvetica, sans-serif;
+    background-color: #F5F5F4;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    line-height: 3.5em;
+    position: absolute;
+    top: 0;
+    width: 100%;    
+}
+
+header h1 {
+    left: 1.25em;
+    margin: 0;
+    position: absolute;
+}
+
+nav {
+    position: absolute;
+    right: 1em;
+}
+
+nav ul {
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFFBF;
+    font-size: 16px;
+}
+
+#divQuery {
+    flex-direction: row;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+header {
+    color: #FFFFFF;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    width: 37%;
+}
+
+select {
+    box-sizing: border-box;
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 30%;
+}
+
+button {
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #2A5AF4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="reset"] {
+    background-color: #ccc;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: white;
+    color: #2A5AF4;
+}
+
+table {
+    width: 100%;
+    max-width: 90%;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+tbody {
+    font-size: 9pt;
+}
+
+th {
+    text-align: left;
+    padding: 8px;
+}
+
+td {
+    text-align: center;
+    padding: 8px;
+}
+
+#thEntryID {
+    border-radius: 5px 0 0 0;
+}
+
+#thDelete {
+    border-radius: 0 5px 0 0;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f0f8ff;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+.table-header {
+    margin-bottom: 10px;
+}
+
+.titleText {
+    color: #fff;
+    font-size: 26px;
+}
+
+@media screen and (max-width: 520px) {
+    table {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    table {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 922px) {
+    table {
+        max-width: 70%;
+    }
+}

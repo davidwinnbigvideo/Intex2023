@@ -1,0 +1,43 @@
+<!-- 
+    Authors: Aiki Takaku, Mark Barlocker, Spencer Olson, David Winn
+    The login page allows the employees to log in
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/styles/loginstyle.css" href="/styles/landing_style.css">
+</head>
+<body class="landing">
+    <header>
+        <h1 id="logo"><a href="/">Back</a></h1>
+        <nav id="nav">
+        </nav>
+    </header>
+    <div id="loginForm">
+        <form id="logform" action="loginAccount" method="post">
+            <fieldset style="width: 300px">
+                <br>
+                <label style="text-align: center; font-size: 20px; font-weight: bold;">Log In</label>
+                <br><br><br>
+                <label for="inputName">Username</label>
+                <br>
+                <input type="text" id="inputName" name="inputName">
+                <br><br>
+                <label for="inputPass">Password</label>
+                <br>
+                <input type="password" id="inputPass" name="inputPass">
+                <label id="password" onclick="showPassword()">Show Password</label>
+                <br>
+                <label class="redtext hidden" id="notFound">Username or password is not correct</label>
+                <button type="submit" onclick="result()">Log in</button>
+                <br><br>
+            </fieldset>
+        </form>
+    </div>
+    <script src="/scripts/login.js"></script>
+</body>
+</html>

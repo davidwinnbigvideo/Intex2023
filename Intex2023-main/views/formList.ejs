@@ -1,0 +1,84 @@
+<!-- 
+  Authors: Aiki Takaku, Mark Barlocker, Spencer Olson, David Winn
+  The formList page lists all the survey results. The employee can delete, view, or edit records
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Entry Form List</title>
+   <link rel="stylesheet" href="/styles/formList.css">
+</head>
+<body>
+  <header>
+    <% let id = parseInt(userData.user_id); %>
+    <h1 id="logo"><a href="/userLandingPage/<%=id%>">Back</a></h1>
+    <nav id="nav">
+    </nav>
+  </header>
+  <div id="divQuery">
+    <br><br>
+    <label class="titleText"><b>Survey Entries</b></label>
+    <br><br>
+    <input type="text" id="searchInput" placeholder="Search any column...">
+      <select id="genderFilter">
+        <option value="">All Genders</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <select id="cityFilter">
+        <option value="">All Cities</option>
+        <option value="Plainsville">Plainsville</option>
+        <option value="Provo">Provo</option>
+      </select>
+    </div>
+   <table>
+     <thead>
+       <tr>
+         <th id="thEntryID">Entry ID</th>
+         <th>Timestamp</th>
+         <th>Age</th>
+         <th>Gender</th>
+         <th>Relationship</th>
+         <th>Occupation</th>
+         <th>Uses Social Media</th>
+         <th>Avg Use Time</th>
+         <th>City</th>
+         <th></th>
+         <th id="thDelete"></th>
+       </tr>
+     </thead>
+     <tbody">
+      <% for (let iCount = 0; iCount < formEntries.length; iCount++) { %>
+         <tr>
+           <td><%= formEntries[iCount].entry_id %></td>
+           <td><%= formEntries[iCount].timestamp %></td>
+           <td><%= formEntries[iCount].age %></td>
+           <td><%= formEntries[iCount].gender %></td>
+           <td><%= formEntries[iCount].relationship %></td>
+           <td><%= formEntries[iCount].occupation %></td>
+           <td><%= formEntries[iCount].uses_social_media %></td>
+           <td><%= formEntries[iCount].avg_time%></td>
+           <td><%= formEntries[iCount].city%></td>
+           <td>
+             <form action="/editEntry/<%= formEntries[iCount].entry_id %>/<%=parseInt(userData.user_id)%>" method="GET">
+               <button type="submit">Edit / View</button>
+             </form>
+           </td>
+           <td>
+             <form action="/deleteEntry/<%= formEntries[iCount].entry_id %>/<%=parseInt(userData.user_id)%>" method="POST">
+               <button type="submit">Delete</button>
+             </form>
+           </td>
+         </tr>
+      <% } %>
+     </tbody>
+   </table>
+   <br><br>
+   
+</body>
+<script src="/scripts/formFilters.js"></script>
+</html>

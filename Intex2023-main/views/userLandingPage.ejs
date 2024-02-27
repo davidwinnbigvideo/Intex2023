@@ -1,0 +1,60 @@
+<!-- 
+    Authors: Aiki Takaku, Mark Barlocker, Spencer Olson, David Winn
+    The userLandingPage is the page the users see when they login. 
+    This has a dashboard and links to all the pages they will need to navigate to.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/userLanding_Style.css">
+    <script src="/scripts/landing.js"></script>
+    <title>Provo SMU MH</title>
+</head>
+<body class = "landing">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <header id="header">
+            <% let id = parseInt(data.user_id); %>
+            <h1 id="logo"><a href="/userLandingPage/<%=id%>">Provo SMU MH</a></h1>
+            <h1 id="logo"><a href="/"></a></h1>
+            <nav id="nav">
+                <ul>                   
+                    <li><a href="" onclick="smoothScroll(event, 'join')">Dashboard</a></li>
+                    <% if (data.username === 'admin') { %>
+                        <li><a href="/employeeList/<%=id%>">Employees</a></li>
+                    <% } else { %>
+                        <li><a href="/editProfile/<%= id %>">Edit Profile</a></li>
+                    <% } %>
+                    <li><a href="/formList/<%= id %>">Survey Results</a></li>
+                    <li><a href="/"><button class="button special scrolly">Logout</button></a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Banner -->
+        <section id="banner">
+            <div class="content">
+                <header>
+                    <h2>Welcome, <%= data.first_name%>!</h2>
+                    <p>This tool will help you manage survey entries<br />
+                        and analyze data using the dashboard.<br /> </p>
+                </header>
+                <span class="image"><img src="/images/provocity.png" alt="" /></span>
+                <br>
+                <button class ="button special" onclick="smoothScroll(event, 'join')">View the Dashboard</button>   
+            </div>
+            
+            
+        </section>
+        <!-- Dashboard -->
+        <section id="join" class="wrapper  fade">
+            <div class="tableau-container">
+                 <div class='tableauPlaceholder' id='viz1701972925626' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;Intex2023FallProvoSocialMediaUsageandMentalHealth&#47;ProvoSMUMHMentalHealthImpact&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Intex2023FallProvoSocialMediaUsageandMentalHealth&#47;ProvoSMUMHMentalHealthImpact' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;Intex2023FallProvoSocialMediaUsageandMentalHealth&#47;ProvoSMUMHMentalHealthImpact&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1701972925626');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='1550px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='1550px';} else { vizElement.style.width='100%';vizElement.style.height='3600px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                
+                </div>
+        </section>
+    </div>
+</body>
+</html>

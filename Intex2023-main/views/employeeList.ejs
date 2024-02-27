@@ -1,0 +1,117 @@
+<!-- 
+  Authors: Aiki Takaku, Mark Barlocker, Spencer Olson, David Winn
+  The employeeList page lists all the employees. This page can only be viewed as the administrator
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Users</title>
+   <link rel="stylesheet" href="/styles/employeeList_style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+      <!-- Go back to the userLandingPage, not / root -->
+        <% let id = parseInt(userData.user_id); %>
+        <h1 id="logo"><a href="/userLandingPage/<%=id%>">Back</a></h1>
+        <nav id="nav">
+        </nav>
+    </header>
+    <div id="popup-overlay">
+      <div id="popup-content">
+        <!-- Your form content here -->
+        <div >
+          <form id="signUpPopForm" action="/createAccount/<%=parseInt(userData.user_id)%>" method="POST">
+              <fieldset>
+                  <br><br>
+                  <legend><strong>Sign up</strong></legend>
+                  <label class="redtext">*required</label>
+                  <br>
+                  <label for="fname"><span class="redtext">*</span>First Name: </label>
+                  <input type="text" id="fname" name="fname" required>
+                  <br><br>
+                  <label for="lname"><span class="redtext">*</span>Last Name: </label>
+                  <input type="text" id="lname" name="lname" required>
+                  <br><br>
+                  <label for="email"><span class="redtext">*</span>Email Address: </label>
+                  <input type="text" id="email" name="email" required>
+                  <br><br>
+                  <label for="phone"><span class="redtext">*</span>Phone Number: </label>
+                  (&nbsp<input type="text" class="mytext" id="phone1" name="phone1" maxlength="3" required>&nbsp) <input type="text" class="mytext" id="phone2" name="phone2" maxlength="3" required>&nbsp -&nbsp<input type="text" class="mytext2" id="phone3" name="phone3" maxlength="4" required>
+                  <br><br>
+                  <label for="userName"><span class="redtext">*</span>Username: </label>
+                  <input type="text" id="userName" name="username" required>
+                  <br><br>
+                  <label for="password"><span class="redtext">*</span>Password: </label>
+                  <input type="text" id="password" name="password" required>
+                  <br><br>
+                  <label for="password"><span class="redtext">*</span>Confirm password: </label>
+                  <input type="text" id="confirmpass" name="confirmpass" required>
+                  <br><br>
+                  <label class=" redtext" id="hideMessage">Password does not match</label>
+                  <label class="redtext hidden" id="notFound">Username is already in use. Enter a new one.</label>
+                  <br>
+                  <div id="centerButton">
+                    <button type="button" onclick="createAccount()" id="create" >Create</button>
+                    <button type="reset" onclick="closePopup()"> Cancel</button>
+                  </div>
+                  <br><br>
+              </fieldset>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div></div>
+    <div>
+      <label class="table-header"><b><h1>Employee Information</h1></b></label>
+    </div>
+   <input type="text" id="searchInput" placeholder="Search any column...">
+
+   <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
+     <thead style="background-color: cornflowerblue; color: white;">
+       <tr>
+         <th style="text-align: left;">Last Name</th>
+         <th style="text-align: left;">First Name</th>
+         <th style="text-align: left;">Username</th>
+         <th style="text-align: left;">Email</th>
+         <th style="text-align: left;">Phone #</th>
+         <th></th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody style="font-family: Arial; font-size: 9pt;">
+      <% for (let iCount = 0; iCount < users.length; iCount++) { %>
+         <tr>
+           <td><%= users[iCount].first_name %></td>
+           <td><%= users[iCount].last_name %></td>
+           <td><%= users[iCount].username %></td>
+           <td><%= users[iCount].email %></td>
+           <td><%= users[iCount].phone %></td>
+           <td style="text-align: center;">
+             <form action="/adminEditProfile/<%= users[iCount].user_id %>/<%=parseInt(userData.user_id)%>" method="GET">
+               <button type="submit">Edit</button>
+             </form>
+           </td>
+           <td style="text-align: center;">
+             <form action="/deleteProfile/<%= users[iCount].user_id %>/<%=parseInt(userData.user_id)%>" method="POST">
+               <button type="submit">Delete</button>
+             </form>
+           </td>
+         </tr>
+      <% } %>
+    </tbody>
+  </table>
+  <div class="add-user-button">
+    <button onclick="openPopup()">Add User</button>
+  </div>
+  <br>
+</body>
+<script src="/scripts/login.js"></script>
+<script src="/scripts/accountFilters.js"></script>
+
+</html>

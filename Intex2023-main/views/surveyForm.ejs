@@ -1,0 +1,224 @@
+<!-- 
+    Authors: Aiki Takaku, Mark Barlocker, Spencer Olson, David Winn
+    The surveyForm is the page anyone can take our survey.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Survey</title>
+   <link rel="stylesheet" href="styles/surveyform.css">
+   <script src="scripts/surveryform.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 id="logo"><a href="/">Back</a></h1>
+        <nav id="nav">
+        </nav>
+    </header>
+        <form id="surveyForm" action="/createEntry" method="POST">
+            <fieldset>
+                <h1>Survey for Provo Citizens</h1>
+                <br>
+                <label>Fill in Your Information: </label>
+
+                <br><br><br>
+
+                <label for="Age">1. Age: </label>
+                <input type="number" id="age" name="age" for="Age" required>
+                <br><br><br>
+
+                <label>2. Gender: </label>
+                <br><br>
+                <input type="radio" id="male" name="gender" for="male" value="Male" required>
+                <label for="male">Male</label>
+                <br>
+                <input type="radio" id="female" name="gender" for="female" value="Female">
+                <label for="female">Female</label>
+                <br>
+                <input type="radio" id="other" name="gender" for="other" value="Other">
+                <label for="other">Other</label>
+                <br><br><br>
+
+                <label>3. Relationship Status: </label>
+                <br><br>
+                <input type="radio" id="relationship" name="relationStatus" for="relationship" value="In relationship" required>
+                <label for="relationship">In relationship</label>
+                <br>
+                <input type="radio" id="single" name="relationStatus" for="single" value="Single">
+                <label for="single">Single</label>
+                <br>
+                <input type="radio" id="married" name="relationStatus" for="married" value="Married">
+                <label for="married">Married</label>
+                <br>
+                <input type="radio" id="divorced" name="relationStatus" for="divorced" value="Divorced">
+                <label for="divorced">Divorced</label>
+                <br><br><br>
+
+                <label>4. Occupation Status: </label>
+                <br><br>
+                <input type="radio" id="universityStud" name="occupation" for="universityStud" value="University Student">
+                <label for="universityStud">University Student</label>
+                <br>
+                <input type="radio" id="schoolStud" name="occupation" for="schoolStud" value="School Student">
+                <label for="schoolStud">School Student</label>
+                <br>
+                <input type="radio" id="salariedWorker" name="occupation" for="salariedWorker" value="Salaried Worker">
+                <label for="salariedWorker">Salaried Worker</label>
+                <br>
+                <input type="radio" id="retired" name="occupation" for="retired" value="Retired">
+                <label for="retired">Retired</label>
+                <br>
+                <input type="radio" id="none" name="occupation" for="none" value="N/A">
+                <label for="none">None</label>
+                <br>
+                <br><br>
+
+                <label>5. What type of organizations are you affiliated with?</label>
+                <br><br>
+                <input type="checkbox" name="organizations" id="university" for="university" value="University"><label for="university">University</label><br>
+                <input type="checkbox" name="organizations" id="private" for="private" value="Private"><label for="private">Private</label><br>
+                <input type="checkbox" name="organizations" id="school" for="school" value="School"><label for="school">School</label><br>
+                <input type="checkbox" name="organizations" id="company" for="company" value="Company"><label for="company">Company</label><br>
+                <input type="checkbox" name="organizations" id="government" for="government" value="Government"><label for="government">Government</label>
+                <br><br><br>
+
+                <label>6. Do you use social media?</label>
+                <br><br>
+                <input type="radio" id="yes" name="socialMedia" for="yes" value="Yes" required>
+                <label for="yes">Yes</label>
+                <br>
+                <input type="radio" id="no" name="socialMedia" for="no" value="No">
+                <label for="no">No</label>
+                <br><br><br>
+
+                <label>7. What social media platforms do you commonly use?</label>
+                <br><br>
+                <input type="checkbox" name="platform" id="facebook" for="facebook" value="Facebook"><label for="facebook">Facebook</label><br>
+                <input type="checkbox" name="platform" id="twitter" for="twitter" value="Twitter"><label for="twitter">Twitter</label><br>
+                <input type="checkbox" name="platform" id="instagram" for="instagram" value="Instagram"><label for="instagram">Instagram</label><br>
+                <input type="checkbox" name="platform" id="youtube" for="youtube" value="YouTube"><label for="youtube">YouTube</label><br>
+                <input type="checkbox" name="platform" id="discord" for="discord" value="Discord"><label for="discord">Discord</label><br>
+                <input type="checkbox" name="platform" id="reddit" for="reddit" value="Reddit"><label for="reddit">Reddit</label><br>
+                <input type="checkbox" name="platform" id="pinterest" for="pinterest" value="Pinterest"><label for="pinterest">Pinterest</label><br>
+                <input type="checkbox" name="platform" id="tiktok" for="tiktok" value="TikTok"><label for="tiktok">TikTok</label><br>
+                <input type="checkbox" name="platform" id="snapchat" for="snapchat" value="Snapchat"><label for="snapchat">Snapchat</label><br>
+
+                <br><br><br>
+                
+                <label>8. What is the average time you spend on social media every day?</label>
+                <br><br>
+
+                <select id="spendingTime" style="font-size: 17px;" value="--" name="avg_time" required>
+                    <option value="" disabled selected>-- Select an option --</option>
+                    <option value="Less than an hour">Less than an hour</option>
+                    <option value="Between 1 and 2 hours">Between 1 and 2 hours</option>
+                    <option value="Between 2 and 3 hours">Between 2 and 3 hours</option>
+                    <option value="Between 3 and 4 hours">Between 3 and 4 hours</option>
+                    <option value="Between 4 and 5 hours">Between 4 and 5 hours</option>
+                    <option value="More than 5 hours">More than 5 hours</option>
+                </select>
+                <br><br><br>
+
+                <label>For questions 9-20, rate between 1 and 5. (1 is lowest and 5 is highest)</label>
+                <br><br><br>
+
+                <label>9. How often do you find yourself using social media without a specific purpose?</label>
+                <br><br>
+                <input name="no_purpose" type="range" id="sizeFor9" min="1" max="5" value="1" step="1" oninput="sizeForSpecific(this.value)">
+                <lable id="specificPurpose" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>10. How often do you get distracted by social media when you are busy doing something?</label>
+                <br><br>
+
+                <input name="busy_distracted" type="range" id="sizeFor10" min="1" max="5" value="1" step="1" oninput="sizeForDistracted(this.value)">
+                <lable id="distracted" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>11. Do you feel restless if you haven’t used social media in a while?</label>
+                <br><br>
+
+                <input name="restless" type="range" id="sizeFor11" min="1" max="5" value="1" step="1" oninput="sizeForRestless(this.value)">
+
+                <lable id="restless" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>12. How easily distracted are you?</label>
+                <br><br>
+
+                <input name="easily_distracted" type="range" id="sizeFor12" min="1" max="5" value="1" step="1" oninput="sizeForEasyDistracted(this.value)">
+
+                <lable id="easyDistracted" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>13. How much are you bothered by worries?</label>
+                <br><br>
+
+                <input name="worries" type="range" id="sizeFor13" min="1" max="5" value="1" step="1" oninput="sizeForBothered(this.value)">
+                <lable id="bothered" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>14. Do you find it difficult to concentrate on things?</label>
+                <br><br>
+
+                <input name="concentration" type="range" id="sizeFor14" min="1" max="5" value="1" step="1" oninput="sizeForDifficultConcent(this.value)">
+
+                <lable id="difficultConcent" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>15. How often do you compare yourself to other successful people through the use of social media?</label>
+                <br><br>
+
+                <input name="compare" type="range" id="sizeFor15" min="1" max="5" value="1" step="1" oninput="sizeForCompare(this.value)">
+
+                <lable id="compare" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>16. Following the previous question, how do you feel about these comparisons, generally speaking?</label>
+                <br><br>
+
+                <input name="compare_feelings" type="range" id="sizeFor16" min="1" max="5" value="1" step="1" oninput="sizeForfeelComperisons(this.value)">
+                <lable id="feelComperisons" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>17. How often do you look to seek validation from features of social media?</label>
+                <br><br>
+
+                <input name="validation" type="range" id="sizeFor17" min="1" max="5" value="1" step="1" oninput="sizeForValidation(this.value)">
+
+                <lable id="validation" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>18. How often do you feel depressed or down?</label>
+                <br><br>
+
+                <input name="depressed" type="range" id="sizeFor18" min="1" max="5" value="1" step="1" oninput="sizeForDepressed(this.value)">
+
+                <lable id="depressed" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>19. How frequently does your interested in daily activities fluctuate?</label>
+                <br><br>
+
+                <input name="motivation" type="range" id="sizeFor18" min="1" max="5" value="1" step="1" oninput="sizeForDailyActivities(this.value)">
+
+                <lable id="dailyActivities" class="sizeNumber">1</lable>
+                <br><br><br>
+
+                <label>20. How often do you face issues regarding sleep?</label>
+                <br><br>
+                <input name="sleep" type="range" id="sizeFor18" min="1" max="5" value="1" step="1" oninput="sizeForSleep(this.value)">
+                <lable id="sleep" class="sizeNumber">1</lable>
+                <br><br><br>
+                <div id="centerButton">
+                    <button type="submit">Submit</button>
+                </div>
+                <br>
+
+            </fieldset>
+        </form>
+</body>
